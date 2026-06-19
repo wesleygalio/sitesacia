@@ -3,110 +3,241 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SACIA | Produtos e Serviços da Região</title>
+  <title>SACIA | Encontre, Compare, Compre</title>
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #1f2937;
+      background: #ffffff;
+      color: #111827;
     }
 
     header {
-      background: linear-gradient(135deg, #0f172a, #2563eb);
-      color: white;
-      padding: 50px 20px;
+      background: #ffffff;
+      padding: 45px 20px 55px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 2px solid #d4a017;
     }
 
-    header h1 {
-      font-size: 42px;
-      margin: 0;
+    header::before,
+    header::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border: 4px solid rgba(212, 160, 23, 0.25);
+      border-radius: 50%;
+      z-index: 0;
     }
 
-    header p {
-      font-size: 18px;
-      margin-top: 10px;
+    header::before {
+      top: -180px;
+      left: -120px;
     }
 
-    .search {
-      margin-top: 25px;
+    header::after {
+      top: -160px;
+      right: -120px;
     }
 
-    .search input {
-      width: 90%;
-      max-width: 500px;
-      padding: 15px;
-      border-radius: 30px;
+    .logo {
+      position: relative;
+      z-index: 1;
+      width: 320px;
+      max-width: 90%;
+      margin-bottom: 25px;
+    }
+
+    .search-box {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      background: white;
+      border: 2px solid #e5e7eb;
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .search-box input {
+      flex: 1;
       border: none;
+      padding: 18px 24px;
       font-size: 16px;
+      outline: none;
+    }
+
+    .search-box button {
+      width: 90px;
+      border: none;
+      background: linear-gradient(135deg, #c99516, #f4c542);
+      color: white;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .cities {
+      position: relative;
+      z-index: 1;
+      margin-top: 25px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #111827;
+    }
+
+    .cities span {
+      color: #c99516;
+      margin: 0 8px;
     }
 
     section {
-      padding: 40px 20px;
-      max-width: 1100px;
+      padding: 55px 20px;
+      max-width: 1200px;
       margin: auto;
     }
 
     h2 {
       text-align: center;
-      margin-bottom: 25px;
+      font-size: 30px;
+      margin-bottom: 35px;
     }
 
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      gap: 25px;
     }
 
     .card {
-      background: white;
-      padding: 25px;
-      border-radius: 18px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      background: #ffffff;
+      padding: 35px 25px;
+      border-radius: 22px;
       text-align: center;
+      border: 1px solid #f1f1f1;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+      transition: 0.3s;
     }
 
-    .card span {
-      font-size: 35px;
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.12);
+    }
+
+    .icon {
+      font-size: 44px;
+      color: #c99516;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 24px;
+      margin: 10px 0;
+    }
+
+    .card p {
+      font-size: 16px;
+      line-height: 1.4;
+      color: #374151;
     }
 
     .cta {
-      background: #0f172a;
-      color: white;
-      text-align: center;
+      margin-top: 20px;
+      border: 2px solid rgba(212,160,23,0.35);
       border-radius: 25px;
-      padding: 40px 20px;
-      margin-top: 30px;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      background: #fffdf7;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+    }
+
+    .cta-text h2 {
+      text-align: left;
+      margin: 0 0 10px;
+      font-size: 32px;
+    }
+
+    .cta-text p {
+      font-size: 18px;
+      color: #374151;
+      margin: 0;
     }
 
     .cta a {
-      display: inline-block;
-      margin-top: 15px;
-      background: #22c55e;
+      background: linear-gradient(135deg, #c99516, #f4c542);
       color: white;
+      padding: 18px 30px;
+      border-radius: 14px;
       text-decoration: none;
-      padding: 15px 25px;
-      border-radius: 30px;
       font-weight: bold;
+      font-size: 18px;
+      white-space: nowrap;
+      box-shadow: 0 8px 20px rgba(201,149,22,0.35);
     }
 
     footer {
       text-align: center;
       padding: 25px;
-      background: #111827;
+      background: #0b0f19;
       color: white;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .logo {
+        width: 260px;
+      }
+
+      .search-box {
+        max-width: 95%;
+      }
+
+      .cities {
+        font-size: 15px;
+        line-height: 1.8;
+      }
+
+      .cta {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .cta-text h2 {
+        text-align: center;
+        font-size: 26px;
+      }
+
+      .cta a {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <header>
-   <img src="Design%20sem%20nome%20(2).png" alt="Logo SACIA" style="max-width:300px; width:90%;">
+    <img class="logo" src="Design%20sem%20nome%20(2).png" alt="Logo SACIA">
 
-
-    <div class="search">
+    <div class="search-box">
       <input type="text" placeholder="O que você está procurando hoje?">
+      <button>🔍</button>
+    </div>
+
+    <div class="cities">
+      📍 Capinzal <span>•</span> Ouro <span>•</span> Zortéa <span>•</span> Piratuba <span>•</span> Ipira
     </div>
   </header>
 
@@ -115,41 +246,46 @@
 
     <div class="cards">
       <div class="card">
-        <span>🛒</span>
-        <h3>Mercados</h3>
-        <p>Produtos essenciais, ofertas e compras do dia a dia.</p>
+        <div class="icon">🛍️</div>
+        <h3>Produtos</h3>
+        <p>Encontre os melhores produtos da região em poucos cliques.</p>
       </div>
 
       <div class="card">
-        <span>🔌</span>
-        <h3>Eletricistas</h3>
-        <p>Instalações, manutenções e serviços elétricos.</p>
+        <div class="icon">🛠️</div>
+        <h3>Serviços</h3>
+        <p>Profissionais e empresas para resolver o que você precisa.</p>
       </div>
 
       <div class="card">
-        <span>🎨</span>
-        <h3>Pintores</h3>
-        <p>Pinturas residenciais, comerciais e acabamentos.</p>
+        <div class="icon">🏷️</div>
+        <h3>Ofertas</h3>
+        <p>Aproveite promoções e oportunidades próximas de você.</p>
       </div>
 
       <div class="card">
-        <span>🍔</span>
-        <h3>Alimentação</h3>
-        <p>Lanches, restaurantes, marmitas e delivery local.</p>
+        <div class="icon">⭐</div>
+        <h3>Pontuação</h3>
+        <p>Avalie empresas, compare reputações e compre com confiança.</p>
       </div>
     </div>
   </section>
 
   <section>
     <div class="cta">
-      <h2>Tem uma empresa ou presta serviço?</h2>
-      <p>Cadastre-se na SACIA e seja encontrado por clientes da região.</p>
-      <a href="https://wa.me/5549999999999" target="_blank">Quero anunciar minha empresa</a>
+      <div class="cta-text">
+        <h2>Tem uma empresa ou presta serviço?</h2>
+        <p>Cadastre-se na SACIA e seja encontrado por clientes da região.</p>
+      </div>
+
+      <a href="https://wa.me/5549999999999" target="_blank">
+        Quero anunciar minha empresa
+      </a>
     </div>
   </section>
 
   <footer>
-    <p>SACIA © 2026 — Conectando a região.</p>
+    <p>SACIA © 2026 — Encontre, compare, compre.</p>
   </footer>
 
 </body>
