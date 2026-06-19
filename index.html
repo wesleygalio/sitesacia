@@ -1,10 +1,156 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>SACIA</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SACIA | Produtos e Serviços da Região</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #2563eb);
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 42px;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .search {
+      margin-top: 25px;
+    }
+
+    .search input {
+      width: 90%;
+      max-width: 500px;
+      padding: 15px;
+      border-radius: 30px;
+      border: none;
+      font-size: 16px;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .card span {
+      font-size: 35px;
+    }
+
+    .cta {
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      border-radius: 25px;
+      padding: 40px 20px;
+      margin-top: 30px;
+    }
+
+    .cta a {
+      display: inline-block;
+      margin-top: 15px;
+      background: #22c55e;
+      color: white;
+      text-decoration: none;
+      padding: 15px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #111827;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-    <h1>Bem-vindo à SACIA</h1>
-    <p>Produtos e serviços da região em um só lugar.</p>
+
+  <header>
+    <h1>SACIA</h1>
+    <p>Produtos e serviços da região em minutos.</p>
+
+    <div class="search">
+      <input type="text" placeholder="O que você está procurando hoje?">
+    </div>
+  </header>
+
+  <section>
+    <h2>Encontre perto de você</h2>
+
+    <div class="cards">
+      <div class="card">
+        <span>🛒</span>
+        <h3>Mercados</h3>
+        <p>Produtos essenciais, ofertas e compras do dia a dia.</p>
+      </div>
+
+      <div class="card">
+        <span>🔌</span>
+        <h3>Eletricistas</h3>
+        <p>Instalações, manutenções e serviços elétricos.</p>
+      </div>
+
+      <div class="card">
+        <span>🎨</span>
+        <h3>Pintores</h3>
+        <p>Pinturas residenciais, comerciais e acabamentos.</p>
+      </div>
+
+      <div class="card">
+        <span>🍔</span>
+        <h3>Alimentação</h3>
+        <p>Lanches, restaurantes, marmitas e delivery local.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="cta">
+      <h2>Tem uma empresa ou presta serviço?</h2>
+      <p>Cadastre-se na SACIA e seja encontrado por clientes da região.</p>
+      <a href="https://wa.me/5549999999999" target="_blank">Quero anunciar minha empresa</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>SACIA © 2026 — Conectando a região.</p>
+  </footer>
+
 </body>
 </html>
